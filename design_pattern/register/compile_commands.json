@@ -1,0 +1,32 @@
+[
+{
+  "directory": "/data1/users/xiyang.jia/d/working/sandbox/design_pattern/register/build/animal",
+  "command": "/usr/bin/c++   -I/data1/users/xiyang.jia/d/working/sandbox/design_pattern/register/animal/include  -O3 -DNDEBUG   -fdiagnostics-color=always -o CMakeFiles/animal_test.dir/test/test.cpp.o -c /data1/users/xiyang.jia/d/working/sandbox/design_pattern/register/animal/test/test.cpp",
+  "file": "/data1/users/xiyang.jia/d/working/sandbox/design_pattern/register/animal/test/test.cpp"
+},
+{
+  "directory": "/data1/users/xiyang.jia/d/working/sandbox/design_pattern/register/build/animal",
+  "command": "/usr/bin/c++  -Danimal_EXPORTS -I/data1/users/xiyang.jia/d/working/sandbox/design_pattern/register/animal/include  -O3 -DNDEBUG -fPIC   -fdiagnostics-color=always -O3 -std=c++17 -o CMakeFiles/animal.dir/src/animal.cpp.o -c /data1/users/xiyang.jia/d/working/sandbox/design_pattern/register/animal/src/animal.cpp",
+  "file": "/data1/users/xiyang.jia/d/working/sandbox/design_pattern/register/animal/src/animal.cpp"
+},
+{
+  "directory": "/data1/users/xiyang.jia/d/working/sandbox/design_pattern/register/build/dog",
+  "command": "/usr/bin/c++   -I/data1/users/xiyang.jia/d/working/sandbox/design_pattern/register/dog/include -I/data1/users/xiyang.jia/d/working/sandbox/design_pattern/register/animal/include  -O3 -DNDEBUG   -o CMakeFiles/dog_test1.dir/test/test1.cpp.o -c /data1/users/xiyang.jia/d/working/sandbox/design_pattern/register/dog/test/test1.cpp",
+  "file": "/data1/users/xiyang.jia/d/working/sandbox/design_pattern/register/dog/test/test1.cpp"
+},
+{
+  "directory": "/data1/users/xiyang.jia/d/working/sandbox/design_pattern/register/build/dog",
+  "command": "/usr/bin/c++   -I/data1/users/xiyang.jia/d/working/sandbox/design_pattern/register/dog/include -I/data1/users/xiyang.jia/d/working/sandbox/design_pattern/register/animal/include  -O3 -DNDEBUG   -o CMakeFiles/dog_test.dir/test/test.cpp.o -c /data1/users/xiyang.jia/d/working/sandbox/design_pattern/register/dog/test/test.cpp",
+  "file": "/data1/users/xiyang.jia/d/working/sandbox/design_pattern/register/dog/test/test.cpp"
+},
+{
+  "directory": "/data1/users/xiyang.jia/d/working/sandbox/design_pattern/register/build/dog",
+  "command": "/usr/bin/c++  -Ddog_EXPORTS -I/data1/users/xiyang.jia/d/working/sandbox/design_pattern/register/dog/include -I/data1/users/xiyang.jia/d/working/sandbox/design_pattern/register/animal/include  -O3 -DNDEBUG -fPIC   -O3 -std=c++17 -o CMakeFiles/dog.dir/src/dog.cpp.o -c /data1/users/xiyang.jia/d/working/sandbox/design_pattern/register/dog/src/dog.cpp",
+  "file": "/data1/users/xiyang.jia/d/working/sandbox/design_pattern/register/dog/src/dog.cpp"
+},
+{
+  "directory": "/data1/users/xiyang.jia/d/working/sandbox/design_pattern/register/build/dog",
+  "command": "/usr/bin/c++  -Ddog_EXPORTS -I/data1/users/xiyang.jia/d/working/sandbox/design_pattern/register/dog/include -I/data1/users/xiyang.jia/d/working/sandbox/design_pattern/register/animal/include  -O3 -DNDEBUG -fPIC   -O3 -std=c++17 -o CMakeFiles/dog.dir/src/dog1.cpp.o -c /data1/users/xiyang.jia/d/working/sandbox/design_pattern/register/dog/src/dog1.cpp",
+  "file": "/data1/users/xiyang.jia/d/working/sandbox/design_pattern/register/dog/src/dog1.cpp"
+}
+]

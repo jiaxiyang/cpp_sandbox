@@ -1,0 +1,17 @@
+[
+{
+  "directory": "/data1/users/xiyang.jia/d/working/sandbox/design_pattern/singleton/build",
+  "command": "/usr/bin/c++   -I/data1/users/xiyang.jia/d/working/sandbox/design_pattern/singleton/include  -O3 -DNDEBUG   -o CMakeFiles/test_singleton.dir/test/test.cpp.o -c /data1/users/xiyang.jia/d/working/sandbox/design_pattern/singleton/test/test.cpp",
+  "file": "/data1/users/xiyang.jia/d/working/sandbox/design_pattern/singleton/test/test.cpp"
+},
+{
+  "directory": "/data1/users/xiyang.jia/d/working/sandbox/design_pattern/singleton/build",
+  "command": "/usr/bin/c++  -Dfoo_EXPORTS -I/data1/users/xiyang.jia/d/working/sandbox/design_pattern/singleton/include  -O3 -DNDEBUG -fPIC   -O3 -std=c++17 -o CMakeFiles/foo.dir/src/foo.cpp.o -c /data1/users/xiyang.jia/d/working/sandbox/design_pattern/singleton/src/foo.cpp",
+  "file": "/data1/users/xiyang.jia/d/working/sandbox/design_pattern/singleton/src/foo.cpp"
+},
+{
+  "directory": "/data1/users/xiyang.jia/d/working/sandbox/design_pattern/singleton/build",
+  "command": "/usr/bin/c++   -I/data1/users/xiyang.jia/d/working/sandbox/design_pattern/singleton/include  -O3 -DNDEBUG   -O3 -std=c++17 -fvisibility=hidden -o CMakeFiles/singleton.dir/src/singleton.cpp.o -c /data1/users/xiyang.jia/d/working/sandbox/design_pattern/singleton/src/singleton.cpp",
+  "file": "/data1/users/xiyang.jia/d/working/sandbox/design_pattern/singleton/src/singleton.cpp"
+}
+]
