@@ -5,6 +5,8 @@ class Singleton {
 public:
   ~Singleton() = default;
 
+  // static __attribute__((visibility("default"))) Singleton &Instance();
+  // //暴露函数符号
   static Singleton &Instance();
 
   // static Singleton &Instance() {
