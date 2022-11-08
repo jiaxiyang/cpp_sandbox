@@ -3,7 +3,7 @@
 #include <dlfcn.h>
 #include <glog/logging.h>
 extern int dog_test;
-int test_xxxx() { return dog_test; }
+// int test_xxxx() { return dog_test; }
 // inline void test_function(){};
 // ANIMALREGIST(Dog);
 int main(int argc, char *argv[]) {

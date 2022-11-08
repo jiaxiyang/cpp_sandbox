@@ -31,3 +31,8 @@ mv ${BUILD_DIR}/compile_commands.json .
 #clang-tidy *.cpp
 
 # cpack --config ${BUILD_DIR}/CPackConfig.cmake
+readelf -d build/dog/dog_test | grep 'NEEDED'
+./build/dog/dog_test
+
+readelf -d build/dog/dog_test1 | grep 'NEEDED'
+./build/dog/dog_test1
