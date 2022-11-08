@@ -6,8 +6,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: test
-      run: ./build/examples/json_example && ./build/examples/spdlog_example
     - name: 'Upload Artifact'
       uses: actions/upload-artifact@v3
       with:
