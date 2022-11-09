@@ -1,42 +1,34 @@
 #include <dlfcn.h>
-#include <glog/logging.h>
+#include <iostream>
 #include <stdlib.h>
 #include <string>
 #include <vector>
-std::vector<std::string> pg_version(std::vector<std::string> so_names) {
+std::string pg_version(std::string so_name) {
   typedef char *(*CAC_FUNC)();
   CAC_FUNC cac_func = NULL;
-  std::vector<std::string> version_list;
-  for (auto so : so_names) {
-    LOG(INFO) << "so=" << so;
-    auto handle = dlopen(so.c_str(), RTLD_LAZY);
-    if (!handle) {
-      LOG(INFO) << "Can't open " << so;
-      version_list.push_back(dlerror());
-      continue;
-    }
-
-    dlerror();
-
-    cac_func = (CAC_FUNC)dlsym(handle, "pg_version_verbose");
-    if (!cac_func) {
-      version_list.push_back(dlerror());
-      continue;
-    }
-
-    version_list.push_back(cac_func());
-    dlclose(handle);
+  auto handle = dlopen(so_name.c_str(), RTLD_LAZY);
+  if (!handle) {
+    auto ret = dlclose(handle);
+    return std::string("Can't open " + so_name);
   }
-  return version_list;
+
+  dlerror();
+
+  cac_func = (CAC_FUNC)dlsym(handle, "pg_version_verbose");
+  if (!cac_func) {
+    auto ret = dlclose(handle);
+    return std::string("No version symbol in " + so_name);
+  }
+
+  auto ret = std::string(cac_func());
+  auto ret_close = dlclose(handle);
+  return ret;
 }
 
 int main(int argc, char *argv[]) {
-
-  std::vector<std::string> so_list = {"build/libversion.so",
-                                      "build/component1/libversion1.so"};
-  auto so_res = pg_version(so_list);
-  LOG(INFO) << "so_res.size()=" << so_res.size();
-  for (auto &str : so_res) {
-    LOG(INFO) << "version=" << str;
+  for (auto i = 1u; i < argc; ++i) {
+    std::cout << "********************* " << argv[i] << " *********************"
+              << std::endl;
+    std::cout << pg_version(argv[i]) << std::endl << std::endl;
   }
 }

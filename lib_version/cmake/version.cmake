@@ -5,11 +5,10 @@ if(GIT_FOUND)
   # execute_process( COMMAND ${GIT_EXECUTABLE} describe --tags --dirty --long
   # OUTPUT_VARIABLE GIT_VERSION OUTPUT_STRIP_TRAILING_WHITESPACE ERROR_QUIET)
   execute_process(
-    COMMAND git describe --always --dirty --long
+    COMMAND git describe --always --tags --dirty --long
     WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
     OUTPUT_VARIABLE GIT_VERSION
     OUTPUT_STRIP_TRAILING_WHITESPACE)
-
 endif()
 
 if("${GIT_VERSION_SHORT}" STREQUAL "")

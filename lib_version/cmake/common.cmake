@@ -74,3 +74,14 @@ function(config_version_support target_name)
 
   target_sources(${target_name} PRIVATE ${CMAKE_CURRENT_BINARY_DIR}/version.c)
 endfunction(config_version_support)
+
+if(NOT version_tool)
+  configure_file(${CMAKE_CURRENT_LIST_DIR}/version_tool.cpp
+                 ${CMAKE_BINARY_DIR}/version_tool.cpp @ONLY)
+  add_executable(version_tool)
+  target_sources(version_tool PRIVATE ${CMAKE_BINARY_DIR}/version_tool.cpp)
+  target_link_libraries(version_tool PRIVATE dl)
+  config_version_support(version_tool)
+  install(TARGETS version_tool DESTINATION bin/tool)
+
+endif()

@@ -6,7 +6,7 @@ INSTALL_DIR=${BUILD_DIR}/$(basename "$PWD")_$(echo ${BUILD_TYPE} | tr '[:upper:]
 TARGET_NAME=
 BUILD_SYSTEM='Unix Makefiles'
 
-# rm -rf ${BUILD_DIR}
+rm -rf ${BUILD_DIR}
 
 cmake -G "${BUILD_SYSTEM}" -S . -B ${BUILD_DIR} \
 	-DCMAKE_BUILD_TYPE=${BUILD_TYPE} \
@@ -22,10 +22,13 @@ cmake --build ${BUILD_DIR}
 #(cd ${BUILD_DIR} && make test)
 # ctest --test-dir ${BUILD_DIR} # after cmake 3.20
 
-#cmake --install ${BUILD_DIR} --strip --prefix ${INSTALL_DIR}
+cmake --install ${BUILD_DIR} --strip --prefix ${INSTALL_DIR}
 
 mv ${BUILD_DIR}/compile_commands.json .
 #clang-tidy *.cpp
 
 # cpack --config ${BUILD_DIR}/CPackConfig.cmake
-./build/version_example
+./build/version_tool -h
+./build/version_tool --help
+./build/version_tool build/libversion.so build/component1/libversion1.so
+ldd ./build/component1/libversion1.so | grep "=> ." | awk '{print $3}' | xargs ./build/version_tool

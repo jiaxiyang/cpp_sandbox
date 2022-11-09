@@ -1,17 +1,18 @@
 static char version_info_short[] =
-    "pg @PROJECT_NAME@ @COMPONENT_NAME@ Version: @PROJECT_VERSION@-@GIT_VERSION_SHORT@ @BUILD_ID@ @BUILT_TIME@ "
+    "pg @PROJECT_NAME@ @COMPONENT_NAME@ Version: "
+    "@PROJECT_VERSION@-@GIT_VERSION_SHORT@ @BUILD_ID@ @BUILT_TIME@ "
     "";
 
 static char version_info_long[] =
-    "pg @PROJECT_NAME@ "
+    "\tproject_name: @PROJECT_NAME@ "
     "\n\tbuild_user: @BUILD_USER@"
-    "\n\tbuilt_time: @BUILT_TIME@"
-    "\n\tcurrent_binary_dir: @CURRENT_BINARY_DIR@"
-    "\n\tcurrent_source_dir: @CURRENT_SOURCE_DIR@"
     "\n\tgit_version: @GIT_VERSION@"
+    "\n\tbuilt_time: @BUILT_TIME@"
     "\n\tcxx: @CMAKE_CXX_COMPILER@  @CMAKE_CXX_COMPILER_ID@ "
     "@CMAKE_C_COMPILER_VERSION@"
     "\n\thost: @FQDN@ @OS_NAME@-@OS_RELEASE@-@OS_PLATFORM@"
+    "\n\tcurrent_binary_dir: @CURRENT_BINARY_DIR@"
+    "\n\tcurrent_source_dir: @CURRENT_SOURCE_DIR@"
     /* "v@PROJECT_VERSION@" */
     /* "\n\tbuild_id: @BUILD_ID@" */
     // "\n\tcmake_cxx_flags: @CMAKE_CXX_FLAGS_DEBUG@ @CMAKE_CXX_FLAGS@"
@@ -19,5 +20,5 @@ static char version_info_long[] =
     /* "\n\tlink_flags: @TYPE@" */
     /* "\n\ttarget_file: @TARGET_FILE@" */
     ;
-const char* pg_version() { return version_info_short; }
-const char* pg_version_verbose() { return version_info_long; }
+const char *pg_version() { return version_info_short; }
+const char *pg_version_verbose() { return version_info_long; }
