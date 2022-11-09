@@ -5,7 +5,7 @@ BUILD_DIR=build
 INSTALL_DIR=${BUILD_DIR}/$(basename "$PWD")_$(echo ${BUILD_TYPE} | tr '[:upper:]' '[:lower:]')
 BUILD_SYSTEM='Unix Makefiles'
 
-# rm -rf ${BUILD_DIR}
+rm -rf ${BUILD_DIR}
 
 cmake -G "${BUILD_SYSTEM}" -S . -B ${BUILD_DIR} \
 	-DCMAKE_BUILD_TYPE=${BUILD_TYPE} \

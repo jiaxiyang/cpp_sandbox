@@ -8,6 +8,8 @@ extern int dog_test;
 // ANIMALREGIST(Dog);
 int main(int argc, char *argv[]) {
   LOG(INFO) << "dog test1...........";
+  // sleep(100);
+
   // LOG(INFO) << "dog_test=" << dog_test;
   // void *handle;
   // handle = dlopen("libdog.so", RTLD_LAZY);
