@@ -32,3 +32,4 @@ mv ${BUILD_DIR}/compile_commands.json .
 ./build/version_tool --help
 ./build/version_tool build/libversion.so build/component1/libversion1.so
 ldd ./build/component1/libversion1.so | grep "=> ." | awk '{print $3}' | xargs ./build/version_tool
+./build/version_example

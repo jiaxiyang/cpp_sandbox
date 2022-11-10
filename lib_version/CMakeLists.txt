@@ -15,5 +15,7 @@ target_link_libraries(version PRIVATE glog::glog)
 # 注意一个文件夹一个comonent, 对应一个version
 add_subdirectory(component1)
 
-# example add_executable(version_example) target_sources(version_example PRIVATE
-# example/version_example.cpp) target_link_libraries(version_example PRIVATE dl)
+add_executable(version_example)
+target_sources(version_example PRIVATE example/version_example.cpp)
+target_link_libraries(version_example PRIVATE dl version version1)
+config_version_support(version_example)

@@ -82,6 +82,6 @@ if(NOT version_tool)
   target_sources(version_tool PRIVATE ${CMAKE_BINARY_DIR}/version_tool.cpp)
   target_link_libraries(version_tool PRIVATE dl)
   config_version_support(version_tool)
-  install(TARGETS version_tool DESTINATION bin/tool)
+  install(TARGETS version_tool DESTINATION bin)
 
 endif()
