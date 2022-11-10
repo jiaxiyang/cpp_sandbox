@@ -5,6 +5,7 @@ static char version_info_short[] =
 
 static char version_info_long[] =
     "\tproject_name: @PROJECT_NAME@ "
+    "\n\ttarget_name: @TARGET_NAME@"
     "\n\tbuild_user: @BUILD_USER@"
     "\n\tgit_version: @GIT_VERSION@"
     "\n\tbuilt_time: @BUILT_TIME@"
