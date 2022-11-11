@@ -1,25 +1,25 @@
-static char version_info_short[] =
-    "pg @PROJECT_NAME@ @COMPONENT_NAME@ Version: "
-    "@PROJECT_VERSION@-@GIT_VERSION_SHORT@ @BUILD_ID@ @BUILT_TIME@ "
-    "";
-
 static char version_info_long[] =
-    "\tproject_name: @PROJECT_NAME@ "
-    "\n\ttarget_name: @TARGET_NAME@"
-    "\n\tbuild_user: @BUILD_USER@"
-    "\n\tgit_version: @GIT_VERSION@"
-    "\n\tbuilt_time: @BUILT_TIME@"
-    "\n\tcxx: @CMAKE_CXX_COMPILER@  @CMAKE_CXX_COMPILER_ID@ "
+    "\tPROJECT_NAME: @PROJECT_NAME@ "
+    "\n\tTARGET_NAME:  @TARGET_NAME@"
+    "\n\tBUILD_USER:   @BUILD_USER@"
+    "\n\tGIT_VERSION:  @GIT_VERSION@"
+    "\n\tBUILT_TYPE:   @CMAKE_BUILD_TYPE@"
+    "\n\tBUILT_TIME:   @BUILT_TIME@"
+    "\n\tCXX:          @CMAKE_CXX_COMPILER@  @CMAKE_CXX_COMPILER_ID@ "
     "@CMAKE_C_COMPILER_VERSION@"
-    "\n\thost: @FQDN@ @OS_NAME@-@OS_RELEASE@-@OS_PLATFORM@"
-    "\n\tcurrent_binary_dir: @CURRENT_BINARY_DIR@"
-    "\n\tcurrent_source_dir: @CURRENT_SOURCE_DIR@"
+    "\n\tCXX_FLAG:     @CMAKE_CXX_FLAGS@"
+    "\n\tCXX_RELEASE:  @CMAKE_CXX_FLAGS_RELEASE@"
+    "\n\tCXX_DEBUG:    @CMAKE_CXX_FLAGS_DEBUG@"
+    "\n\tELF_ARCH:     @CMAKE_CXX_LIBRARY_ARCHITECTURE@"
+    "\n\tHOST:         @FQDN@ @OS_NAME@-@OS_RELEASE@"
+    "\n\tCPU_INFO:     @PROCESSOR_DESCRIPTION@"
+    "\n\tBINARY_DIR:   @CURRENT_BINARY_DIR@"
+    "\n\tSOURCE_DIR:   @CURRENT_SOURCE_DIR@"
     /* "v@PROJECT_VERSION@" */
     /* "\n\tbuild_id: @BUILD_ID@" */
     // "\n\tcmake_cxx_flags: @CMAKE_CXX_FLAGS_DEBUG@ @CMAKE_CXX_FLAGS@"
-    /* "\n\tcomponent: @COMPONENT_NAME@" */
+    /* "\n\tHOST:         @FQDN@ @OS_NAME@-@OS_RELEASE@-@OS_PLATFORM@" */
     /* "\n\tlink_flags: @TYPE@" */
     /* "\n\ttarget_file: @TARGET_FILE@" */
     ;
-const char *pg_version() { return version_info_short; }
 const char *pg_version_verbose() { return version_info_long; }

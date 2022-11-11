@@ -9,8 +9,6 @@ config_version_support(version)
 # target_sources(version PRIVATE ${CMAKE_CURRENT_BINARY_DIR}/version.c)
 target_compile_options(version PRIVATE -O3 -std=c++17)
 target_include_directories(version PUBLIC include)
-# find_package(glog REQUIRED)
-# target_link_libraries(version PRIVATE glog::glog)
 
 # 注意一个文件夹一个comonent, 对应一个version
 add_subdirectory(component1)
