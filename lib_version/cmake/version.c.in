@@ -12,14 +12,9 @@ static char version_info_long[] =
     "\n\tCXX_DEBUG:    @CMAKE_CXX_FLAGS_DEBUG@"
     "\n\tELF_ARCH:     @CMAKE_CXX_LIBRARY_ARCHITECTURE@"
     "\n\tHOST:         @FQDN@ @OS_NAME@-@OS_RELEASE@"
-    "\n\tCPU_INFO:     @PROCESSOR_DESCRIPTION@"
-    "\n\tBINARY_DIR:   @CURRENT_BINARY_DIR@"
-    "\n\tSOURCE_DIR:   @CURRENT_SOURCE_DIR@"
-    /* "v@PROJECT_VERSION@" */
-    /* "\n\tbuild_id: @BUILD_ID@" */
-    // "\n\tcmake_cxx_flags: @CMAKE_CXX_FLAGS_DEBUG@ @CMAKE_CXX_FLAGS@"
-    /* "\n\tHOST:         @FQDN@ @OS_NAME@-@OS_RELEASE@-@OS_PLATFORM@" */
-    /* "\n\tlink_flags: @TYPE@" */
-    /* "\n\ttarget_file: @TARGET_FILE@" */
+    "\n\tHOST_CPU:     @PROCESSOR_DESCRIPTION@"
+    /* "\n\tBINARY_DIR:   @CURRENT_BINARY_DIR@" */
+    /* "\n\tSOURCE_DIR:   @CURRENT_SOURCE_DIR@" */
     ;
+
 const char *pg_version_verbose() { return version_info_long; }

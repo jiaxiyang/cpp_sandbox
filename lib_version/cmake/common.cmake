@@ -27,18 +27,24 @@ function(_get_all_properties target_name)
 endfunction(_get_all_properties)
 
 function(_kv target_name k v)
-  file(APPEND ${CMAKE_CURRENT_BINARY_DIR}/${target_name}_version/version.c.kv
-       "set(" ${k} " [=[" "${v}" "]=])" \n)
+  file(
+    APPEND
+    ${CMAKE_CURRENT_BINARY_DIR}/version_src/${target_name}_version/version.c.kv
+    "set(" ${k} " [=[" "${v}" "]=])" \n)
 endfunction(_kv)
 
 function(_k target_name k)
-  file(APPEND ${CMAKE_CURRENT_BINARY_DIR}/${target_name}_version/version.c.kv
-       "set(" ${k} " [=[" ${${k}} "]=])" \n)
+  file(
+    APPEND
+    ${CMAKE_CURRENT_BINARY_DIR}/version_src/${target_name}_version/version.c.kv
+    "set(" ${k} " [=[" ${${k}} "]=])" \n)
 endfunction(_k)
 
 function(config_version_support target_name)
-  file(WRITE ${CMAKE_CURRENT_BINARY_DIR}/${target_name}_version/version.c.kv
-       "# export variables for versio info" \n)
+  file(
+    WRITE
+    ${CMAKE_CURRENT_BINARY_DIR}/version_src/${target_name}_version/version.c.kv
+    "# export variables for versio info" \n)
   _get_all_properties(${target_name} _properties)
   _k(${target_name} PROJECT_NAME)
   _kv(${target_name} COMPONENT_NAME ${target_name})
@@ -68,21 +74,23 @@ function(config_version_support target_name)
   endforeach(_info)
 
   message(STATUS "CMAKE_CURRENT_BINARY_DIR ${CMAKE_CURRENT_BINARY_DIR}")
-  # if(NOT EXISTS "${CMAKE_CURRENT_BINARY_DIR}/${target_name}_version")
-  file(MAKE_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/${target_name}_version")
-  # endif()
+  file(MAKE_DIRECTORY
+       "${CMAKE_CURRENT_BINARY_DIR}/version_src/${target_name}_version")
   add_custom_command(
-    OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/${target_name}_version/version.c
+    OUTPUT
+      ${CMAKE_CURRENT_BINARY_DIR}/version_src/${target_name}_version/version.c
     COMMAND
       ${CMAKE_COMMAND} -DCURRENT_KV_DIR=${CMAKE_CURRENT_BINARY_DIR}
-      -DCURRENT_BINARY_DIR=${CMAKE_CURRENT_BINARY_DIR}/${target_name}_version -P
-      ${CMAKE_SOURCE_DIR}/cmake/version.cmake
-    DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/${target_name}_version/version.c.kv
+      -DCURRENT_BINARY_DIR=${CMAKE_CURRENT_BINARY_DIR}/version_src/${target_name}_version
+      -P ${CMAKE_SOURCE_DIR}/cmake/version.cmake
+    DEPENDS
+      ${CMAKE_CURRENT_BINARY_DIR}/version_src/${target_name}_version/version.c.kv
     WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
 
   target_sources(
     ${target_name}
-    PRIVATE ${CMAKE_CURRENT_BINARY_DIR}/${target_name}_version/version.c)
+    PRIVATE
+      ${CMAKE_CURRENT_BINARY_DIR}/version_src/${target_name}_version/version.c)
 endfunction(config_version_support)
 
 if(NOT version_tool)
@@ -93,5 +101,4 @@ if(NOT version_tool)
   target_link_libraries(version_tool PRIVATE dl)
   config_version_support(version_tool)
   install(TARGETS version_tool DESTINATION bin)
-
 endif()
