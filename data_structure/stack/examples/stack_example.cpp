@@ -2,13 +2,15 @@
 #include <stack>
 
 void print_stack(std::stack<int> s) {
+  std::string str;
   while (!s.empty()) {
-    std::cout << s.top() << " ";
+    str = " " + std::to_string(s.top()) + str;
     s.pop();
-    if (!s.empty())
-      std::cout << "<- ";
+    if (!s.empty()) {
+      str = " ->" + str;
+    }
   }
-  std::cout << std::endl;
+  std::cout << str << std::endl;
 }
 
 int main(int argc, char *argv[]) {
