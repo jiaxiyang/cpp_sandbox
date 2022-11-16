@@ -2,6 +2,11 @@ cmake_minimum_required(VERSION 3.8)
 
 project(version)
 include(cmake/common.cmake)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pg")
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -pg")
+set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -pg")
+set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -pg")
+
 # libgraph
 add_library(version SHARED)
 target_sources(version PRIVATE src/version.cpp)
