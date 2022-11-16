@@ -8,9 +8,10 @@ project(map)
 # target_link_libraries(map PRIVATE glog::glog)
 
 # example
-list(APPEND GRAPH_EXAMPLES unordered_map_example)
+list(APPEND GRAPH_EXAMPLES map_example unordered_map_example)
 foreach(example IN LISTS GRAPH_EXAMPLES)
   add_executable(${example} examples/${example}.cpp)
+  target_compile_options(${example} PRIVATE -O3 -std=c++17)
 endforeach()
 
 # add_executable(map_example) target_sources(map_example PRIVATE

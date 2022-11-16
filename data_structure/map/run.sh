@@ -33,3 +33,4 @@ mv ${BUILD_DIR}/compile_commands.json .
 
 # cpack --config ${BUILD_DIR}/CPackConfig.cmake
 ./${BUILD_DIR}/unordered_map_example
+./${BUILD_DIR}/map_example
