@@ -10,20 +10,26 @@
 std::atomic<int> i = 0;
 // int i = 0;
 
-void test() {
-  std::cout << "i = " << i.load() << std::endl;
-  for (auto j = 0u; j < 10000; ++j) {
-    // i.store(i.load() + 1); //有问题 i.load()之后变化了 store也会变化
-    i++;
-  }
-}
+// void test() {
+//   std::cout << "i = " << i.load() << std::endl;
+//   for (auto j = 0u; j < 10000; ++j) {
+//     // i.store(i.load() + 1); //有问题 i.load()之后变化了 store也会变化
+//     i++;
+//   }
+// }
 
 int main(int argc, char *argv[]) {
   std::vector<int> results(10);
   std::vector<std::thread> threads;
   threads.reserve(results.size());
-  for (auto i = 0u; i < results.size(); ++i) {
-    threads.emplace_back(std::thread(test));
+  for (auto k = 0u; k < results.size(); ++k) {
+    threads.emplace_back(std::thread([&]() {
+      // std::cout << "i = " << i.load() << std::endl;
+      for (auto j = 0u; j < 10000; ++j) {
+        // i.store(i.load() + 1); //有问题 i.load()之后变化了 store也会变化
+        i++;
+      }
+    }));
   }
 
   for (auto &t : threads) {
