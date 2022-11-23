@@ -12,7 +12,7 @@
 1. 头文件`<fstream>`
 1. 在 linux 平台下进行文件读写时，文本模式和二进制模式没有区别。windows:如果以“文本”方式打开文件，当读取文件的时候，系统会将所有的"/r/n"转换成"/n"；当写入文件的时候，系统会将"/n"转换成"/r/n"写入。[link](https://www.cnblogs.com/litaozijin/p/6582048.html)
 1. 默认是文本模式打开。
-1. 最好加上二进制模式，比较通用`std::ios_base::binary`
+1. 最好加上二进制模式，比较通用。`std::ios_base::binary`
 1. 读文件
 
 ```

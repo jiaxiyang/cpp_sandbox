@@ -9,8 +9,8 @@ std::string pg_version(std::string so_name) {
   CAC_FUNC cac_func = NULL;
   auto handle = dlopen(so_name.c_str(), RTLD_LAZY);
   if (!handle) {
-    // return std::string("Can't open " + so_name);
-    return "";
+    return std::string(dlerror());
+    // return "";
   }
 
   dlerror();
@@ -30,7 +30,7 @@ std::string pg_version(std::string so_name) {
 extern "C" const char *pg_version_verbose();
 
 int main(int argc, char *argv[]) {
-  if (argc < 1 || std::string(argv[1]).compare("-h") == 0 ||
+  if (argc == 1 || std::string(argv[1]).compare("-h") == 0 ||
       std::string(argv[1]).compare("--help") == 0) {
     std::cout << "\nUsage:\n"
               << "\t1. Check share libraries version\n"
