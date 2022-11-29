@@ -1,8 +1,10 @@
-## 概述
+## Introduction
+
+使用 cmake 一键将详细的版本信息注入到动态库或可执行程序中, 极大简化了版本管理。
 
 ### 痛点
 
-工程编译出来的库或可执行程序未带版本信息，调试和测试出问题很难复现和回溯; 手动记录版本则耗时耗力，也容易出错。
+工程编译出来的动态库或可执行程序未带版本信息，调试和测试出问题很难复现和回溯; 手动记录版本则耗时耗力，也容易出错。
 
 ### 解决方案
 
@@ -12,7 +14,7 @@
 4. 动态库：提供 version tool 工具使用用 dlopn 打开动态库，输出版本信息。
 5. 可执行程序：运行时调用 C 函数输出版本信息
 
-## quick start
+## Quick start
 
 1. 将 cmake 文件夹中的`CPM.cmake`和`get_pg_cpm_functions.cmake`复制到目标工程的 cmake 文件夹中
 2. CMakeLists.txt 中添加`include(cmake/get_pg_cpm_functions.cmake)`
@@ -147,3 +149,10 @@ int main(int argc, char *argv[]) {
 1. **动态库中的 pg_version_verbose 符号要暴露出来, 否则 dlopen 打开动态库找不到 pg_version_verbose 定义**
 1. 测试时，GIT_VERSION 信息不要带 dirty, 带 dirty 的不能回溯
 1. 测试时，BUILD_TYPE 需要为 Release
+1. `strings so | elf` 也能看到版本信息
+
+## TODO
+
+1. 使用注册机制来管理版本信息，生成代码在加载时自动注册信息到 map 中, 提供 c 函数打印结果。
+1. 静态库版本管理
+   - 思路：提供一个能够传参的 cmake 函数，将 target 名字作为参数来生成 c 函数，供可执行程序中调用。
