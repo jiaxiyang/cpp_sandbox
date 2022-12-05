@@ -13,17 +13,15 @@ nm -C test | grep GLIBC
 readelf -s test | grep GLIBC
 objdump -t test | grep GLIBC
 
-# 查看节(section)信息
-readelf -S test
-
 # 查看节大小
 size test
 size -A test
 
-# 查看段(section)信息
-readelf -l test
+# 查看节(section)信息
+readelf -S test
 
-# section to segment
+# 查看段(segmant)信息和section to segment信息
+readelf -l test
 
 # 看进程映射区域
 # cat /proc/pid/maps 或 pmap pid
