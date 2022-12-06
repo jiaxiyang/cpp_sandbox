@@ -8,8 +8,9 @@
 // read-only, you don't have permission, etc...
 
 #include <array>
+#include <cstdlib>
 #include <iostream>
-#include <stdlib.h>
+// #include <stdlib.h>
 #include <unistd.h>
 #include <vector>
 
@@ -98,6 +99,13 @@ void overflow_buf_array_c() {
   vec[10] = 100;                     //不一定出错，加vec1不出错
 }
 
+void buf_not_init() {
+  std::vector<int> vec;
+  vec.reserve(10);
+  std::cout << vec.size() << std::endl;
+  std::cout << vec[0] << std::endl;
+}
+
 void bus_error() {
   std::cout << "bus error" << std::endl;
 #if defined(__GNUC__)
@@ -116,7 +124,8 @@ void bus_error() {
   std::cout << *((int *)&c[5]) << std::endl;
 }
 
-int main(int argc, char *argv[]) {
+void memory_error() {
+
   double_free(); // double free or corruption (!prev)
 
   // use_after_free(); // Segmentation fault
@@ -133,5 +142,13 @@ int main(int argc, char *argv[]) {
 
   // overflow_buf_array_c(); // stack smashing detected
 
+  // buf_not_init();
+}
+
+void memory_leak() { int *test = new int[1]; }
+
+int main(int argc, char *argv[]) {
+  memory_error();
+  memory_leak();
   return 0;
 }
