@@ -1,0 +1,6 @@
+start
+b 32
+c
+i locals
+u 35
+i locals
